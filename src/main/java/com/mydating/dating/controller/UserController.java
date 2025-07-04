@@ -35,9 +35,20 @@ public class UserController {
 	@GetMapping("/users/best-match/{id}/{top}")
 	public ResponseEntity<?> findBestMatch(@PathVariable int id,@PathVariable int top){
 		return userService.findBestMatch(id,top);
-		
+		}
 	
+	
+	
+	@GetMapping("/users/search/name/{letter}")
+	public ResponseEntity<?> searchByName(@PathVariable String letters){
+		return userService.searchByName(letters);
 	}
+	
+	@GetMapping("/users/search/email/{letter}")
+	public ResponseEntity<?> searchByemail(@PathVariable String letters){
+		return userService.searchByName(letters);
+	}
+	
 	
     
     

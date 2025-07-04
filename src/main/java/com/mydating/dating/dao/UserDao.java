@@ -35,7 +35,15 @@ public class UserDao {
         return rep.findById(id);
     }
 
+	public List<User> searchByName(String letters) {
+		
+		return rep.searchByName(letters);
+	}
 
+public List<User> searchByemail(String letters) {
+		
+		return rep.searchByemail(letters);
+	}
     
     
 

@@ -120,7 +120,31 @@ public class UserService {
 		
 		
 	}
-    
+
+	public ResponseEntity<?> searchByName(String letters) {
+		List<User> users= userDao.searchByName("%"+letters+"%");
+		if(users.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("no user found with letter:"+letters);
+		}
+		else {
+			
+		
+		return ResponseEntity.status(HttpStatus.OK).body(users);
+	}
+	}
+	
+	public ResponseEntity<?> searchByemail(String letters) {
+		List<User> users= userDao.searchByemail("%"+letters+"%");
+		if(users.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("no user found with letter:"+letters);
+		}
+		else {
+			
+		
+		return ResponseEntity.status(HttpStatus.OK).body(users);
+	}
+	}
+	
     
 	/* to delete user
 	 * public ResponseEntity<?> deleteUser(int id) { if (userDao.existsById(id)) {
